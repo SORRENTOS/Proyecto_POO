@@ -1,44 +1,19 @@
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
-    public static int buscarElemento(Database bd, int id, String tipo) {
-        switch (tipo) {
-            case "l":
-                List<Libro> libros = bd.getAllLibros();
-                for (Libro lb : libros) {
-                    if (lb.getID() == id) {
-                        lb.showInformation();
-                        return 1;
-                    }
-                }
-                break;
-            case "d":
-                List<Documento> documentos = bd.getAllDocumentos();
-                for (Documento dc : documentos) {
-                    if (dc.getID() == id) {
-                        dc.showInformation();
-                        return 1;
-                    }
-                }
-                break;
-            case "r":
-                List<Revista> revistas = bd.getAllRevistas();
-                for (Revista rv : revistas) {
-                    if (rv.getID() == id) {
-                        rv.showInformation();
-                        return 1;
-                    }
-                }
-                break;
-            default:
-                break;
+    public static int buscarElemento(ArrayList<Publicacion> publicaciones, int id) {
+        for (int i = 0; i < publicaciones.size(); i++) {
+            if (publicaciones.get(i).getID() == id) {
+                publicaciones.get(i).showInformation();
+                return 1;
+            }
         }
         return 0;
     }
 
-    public static void agregarElemento(Database bd, Scanner input) {
+    public static void agregarElemento(ArrayList<Publicacion> publicaciones, Scanner input) {
         System.out.println(" De que tipo?");
         System.out.println("   1. Libro.");
         System.out.println("   2. Documento.");
@@ -47,13 +22,13 @@ public class App {
         int opcion = input.nextInt();
         switch (opcion) {
             case 1:
-                Libro libro;
+                Publicacion libro;
 
                 System.out.println("Ingrese un identificador al libro:");
                 int identificador = input.nextInt();
                 input.nextLine(); // Consumir la nueva línea pendiente
                 // Si el elemento no existe
-                if (buscarElemento(bd, identificador, "l") == 0) {
+                if (buscarElemento(publicaciones, identificador) == 0) {
                     System.out.println("Ingrese titulo del libro a ingresar:");
                     String titulo = input.nextLine();
                     System.out.println("Ingrese autor del libro a ingresar:");
@@ -68,22 +43,26 @@ public class App {
                     input.nextLine(); // Consumir la nueva línea pendiente
 
                     libro = new Libro(identificador, titulo, autor, descripcion, cantidad, paginas, "path/img");
+                    publicaciones.add(libro);
 
-                    bd.insertLibro(libro);
+                    System.out.println("Libro agregado!");
                 } else { // Si ya existe el elemento
                     System.out.println(
-                            "Ya existe el elemento con ese identificador. Se incrementara la cantidad disponible.");
-                    bd.updateCantidadDisp("l", identificador, 1);
-                    // Ver Update en la bd
+                            "Ya existe el elmemento con ese identificador. Se incrementara la cantidad disponible.");
+                    for (int i = 0; i < publicaciones.size(); i++) {
+                        if (publicaciones.get(i).getID() == identificador) {
+                            publicaciones.get(i).setCantidadDisp(publicaciones.get(i).getCantidadDisp() + 1);
+                        }
+                    }
                 }
                 break;
             case 2:
-                Documento documento;
+                Publicacion documento;
 
                 System.out.println("Ingrese un identificador al documento:");
                 int id2 = input.nextInt();
                 input.nextLine(); // Consumir la nueva línea pendiente
-                if (buscarElemento(bd, id2, "d") == 0) {
+                if (buscarElemento(publicaciones, id2) == 0) {
                     System.out.println("Ingrese titulo del documento a ingresar:");
                     String t2 = input.nextLine();
                     System.out.println("Ingrese autor del documento a ingresar:");
@@ -98,21 +77,26 @@ public class App {
                     input.nextLine(); // Consumir la nueva línea pendiente
 
                     documento = new Documento(id2, t2, a2, d2, c2, p2, "path/img");
+                    publicaciones.add(documento);
 
-                    bd.insertDocumento(documento);
+                    System.out.println("Documento agregado!");
                 } else { // Si ya existe el elemento
                     System.out.println(
-                            "Ya existe el elemento con ese identificador. Se incrementara la cantidad disponible.");
-                    bd.updateCantidadDisp("d", id2, 1);
+                            "Ya existe el elmemento con ese identificador. Se incrementara la cantidad disponible.");
+                    for (int i = 0; i < publicaciones.size(); i++) {
+                        if (publicaciones.get(i).getID() == id2) {
+                            publicaciones.get(i).setCantidadDisp(publicaciones.get(i).getCantidadDisp() + 1);
+                        }
+                    }
                 }
                 break;
             case 3:
-                Revista revista;
+                Publicacion revista;
 
                 System.out.println("Ingrese un identificador a la revista:");
                 int id3 = input.nextInt();
                 input.nextLine(); // Consumir la nueva línea pendiente
-                if (buscarElemento(bd, id3, "r") == 0) {
+                if (buscarElemento(publicaciones, id3) == 0) {
                     System.out.println("Ingrese titulo de la revista a ingresar:");
                     String t3 = input.nextLine();
                     System.out.println("Ingrese descripcion de la revista a ingresar:");
@@ -125,12 +109,17 @@ public class App {
                     input.nextLine(); // Consumir la nueva línea pendiente
 
                     revista = new Revista(id3, t3, d3, c3, p3, "path/img");
+                    publicaciones.add(revista);
 
-                    bd.insertRevista(revista);
+                    System.out.println("Revista agregada!");
                 } else { // Si ya existe el elemento
                     System.out.println(
-                            "Ya existe el elemento con ese identificador. Se incrementara la cantidad disponible.");
-                    bd.updateCantidadDisp("r", id3, 1);
+                            "Ya existe el elmemento con ese identificador. Se incrementara la cantidad disponible.");
+                    for (int i = 0; i < publicaciones.size(); i++) {
+                        if (publicaciones.get(i).getID() == id3) {
+                            publicaciones.get(i).setCantidadDisp(publicaciones.get(i).getCantidadDisp() + 1);
+                        }
+                    }
                 }
                 break;
             default:
@@ -138,24 +127,24 @@ public class App {
         }
     }
 
-    public static void eliminarElemento(Database bd, int id, String tipo) {
-        int cantidadDisp = bd.getCantidadDisp(tipo, id);
-        if (cantidadDisp > 1) {
-            bd.updateCantidadDisp(tipo, id, -1);
-            System.out.println("Cantidad disponible disminuida en 1.");
-        } else {
-            bd.deletePublicacion(tipo, id);
-            System.out.println("Elemento eliminado de la base de datos.");
+    public static int eliminarElemento(ArrayList<Publicacion> publicaciones, int id) {
+        for (int i = 0; i < publicaciones.size(); i++) {
+            if (publicaciones.get(i).getID() == id) {
+                if (publicaciones.get(i).getCantidadDisp() > 0) {
+                    publicaciones.get(i).setCantidadDisp(publicaciones.get(i).getCantidadDisp() - 1);
+                } else {
+                    publicaciones.remove(i);
+                }
+                return 1;
+            }
         }
+        return 0;
     }
 
     public static void main(String[] args) throws Exception {
         System.out.println();
+        ArrayList<Publicacion> publicaciones = new ArrayList<Publicacion>();
         Scanner input = new Scanner(System.in);
-
-        // Conexion inicial con la BD
-        Database pgConn = new Database();
-        pgConn.createTablesIfNotExist();
 
         System.out.println("Bienvenid@ al sistema XXXXX");
         Boolean continuar = true;
@@ -172,45 +161,29 @@ public class App {
             input.nextLine(); // Consumir la nueva línea pendiente
             switch (opcion) {
                 case 1:
-                    agregarElemento(pgConn, input);
+                    agregarElemento(publicaciones, input);
                     break;
                 case 2:
-                    List<Libro> listaLibros = pgConn.getAllLibros();
-                    List<Documento> listaDocumentos = pgConn.getAllDocumentos();
-                    List<Revista> listaRevistas = pgConn.getAllRevistas();
-
-                    System.out.println();
-                    System.out.println("Libros disponibles:");
-                    for (Libro l : listaLibros) {
-                        l.showInformation();
-                    }
-
-                    System.out.println("Documentos disponibles:");
-                    for (Documento d : listaDocumentos) {
-                        d.showInformation();
-                    }
-
-                    System.out.println("Revistas disponibles:");
-                    for (Revista r : listaRevistas) {
-                        r.showInformation();
+                    for (int i = 0; i < publicaciones.size(); i++) {
+                        publicaciones.get(i).showInformation();
                     }
                     break;
                 case 3:
-                    System.out.println("Ingrese el tipo de publicacion a buscar: (l: libro, d: documento, r: revista)");
-                    String tipo = input.nextLine();
                     System.out.println("Ingrese el ID de la publicacion a buscar:");
                     int idBuscar = input.nextInt();
                     input.nextLine(); // Consumir la nueva línea pendiente
-                    buscarElemento(pgConn, idBuscar, tipo);
+                    buscarElemento(publicaciones, idBuscar);
                     break;
                 case 4:
-                    System.out
-                            .println("Ingrese el tipo de publicacion a eliminar: (l: libro, d: documento, r: revista)");
-                    tipo = input.nextLine();
                     System.out.println("Ingrese el ID de la publicacion a eliminar:");
                     int idEliminar = input.nextInt();
                     input.nextLine(); // Consumir la nueva línea pendiente
-                    eliminarElemento(pgConn, idEliminar, tipo);
+                    int eliminado = eliminarElemento(publicaciones, idEliminar);
+                    if (eliminado == 0) {
+                        System.out.println("No se encontro el elemento para eliminar.");
+                    } else {
+                        System.out.println("Elemento eliminado!");
+                    }
                     break;
                 default:
                     continuar = false;
