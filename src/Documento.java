@@ -3,9 +3,9 @@ public class Documento extends Publicacion {
     private String publicador;
 
     // Constructor de la clase Documento
-    public Documento(String titulo, String publicador, String descripcion, int cantidadDisp, int numPaginas,
+    public Documento(int id, String titulo, String publicador, String descripcion, int cantidadDisp, int numPaginas,
             String imagen) {
-        super(titulo, descripcion, cantidadDisp, numPaginas, imagen);
+        super(id, titulo, descripcion, cantidadDisp, numPaginas, imagen);
         this.publicador = publicador;
     }
 

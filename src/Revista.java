@@ -1,8 +1,8 @@
 public class Revista extends Publicacion {
 
     // Constructor de la clase Revista
-    public Revista(String titulo, String descripcion, int cantidadDisp, int numPaginas, String imagen) {
-        super(titulo, descripcion, cantidadDisp, numPaginas, imagen);
+    public Revista(int id, String titulo, String descripcion, int cantidadDisp, int numPaginas, String imagen) {
+        super(id, titulo, descripcion, cantidadDisp, numPaginas, imagen);
     }
 
     @Override

@@ -3,8 +3,9 @@ public class Libro extends Publicacion {
     private String autor;
 
     // Constructor de la clase Libro
-    public Libro(String titulo, String autor, String descripcion, int cantidadDisp, int numPaginas, String imagen) {
-        super(titulo, descripcion, cantidadDisp, numPaginas, imagen);
+    public Libro(int id, String titulo, String autor, String descripcion, int cantidadDisp, int numPaginas,
+            String imagen) {
+        super(id, titulo, descripcion, cantidadDisp, numPaginas, imagen);
         this.autor = autor;
     }
 

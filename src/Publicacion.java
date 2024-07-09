@@ -5,19 +5,25 @@ public abstract class Publicacion {
     private String imagen;
     private int cantidadDisp;
     private int numPaginas;
+    private int id;
 
     // Constructor de la clase Publicacion
-    public Publicacion(String titulo, String descripcion, int cantidadDisp, int numPaginas, String imagen) {
+    public Publicacion(int id, String titulo, String descripcion, int cantidadDisp, int numPaginas, String imagen) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.cantidadDisp = cantidadDisp;
         this.numPaginas = numPaginas;
         this.imagen = imagen;
+        this.id = id;
     }
 
     abstract public void showInformation();
 
     /* Getters */
+    public int getID() {
+        return id;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -40,6 +46,10 @@ public abstract class Publicacion {
     /* Getters */
 
     /* Setters */
+    public void setID(int _id) {
+        this.id = _id;
+    }
+
     public void setTitulo(String _titulo) {
         this.titulo = _titulo;
     }
