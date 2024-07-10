@@ -14,7 +14,7 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="249.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="66.0" text="Descricion" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="166.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="112.0" text="Cantidad Disponible" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="210.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="112.0" text="Numero de Paginas" />
-      <TextField layoutX="140.0" layoutY="45.0" promptText="&quot;3&quot;" />
+      <TextField fx:id="txtIdDoc" layoutX="140.0" layoutY="45.0" promptText="&quot;3&quot;" />
       <TextField fx:id="txtTituloDoc" layoutX="140.0" layoutY="86.0" promptText="&quot;Datasheet X&quot;" />
       <TextField fx:id="txtPublicadorDoc" layoutX="140.0" layoutY="123.0" promptText="&quot;Motorola&quot;" />
       <TextField fx:id="txtDescripcionDoc" alignment="TOP_LEFT" layoutX="140.0" layoutY="249.0" prefHeight="76.0" prefWidth="437.0" promptText="&quot;Componente electrico con voltaje de entrada maximo 3v&quot;" />

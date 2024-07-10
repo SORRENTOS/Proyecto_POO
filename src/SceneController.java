@@ -55,6 +55,8 @@ public class SceneController {
     private TableColumn<Revista, Integer> DescMag;
     
     @FXML
+    private TextField txtIdDoc;
+    @FXML
     private TextField txtTituloDoc;
     @FXML
     private TextField txtPublicadorDoc;
@@ -64,7 +66,9 @@ public class SceneController {
     private TextField txtCantidadDispDoc;
     @FXML
     private TextField txtNumPaginasDoc;
-    
+
+    @FXML
+    private TextField txtIdBook;
     @FXML
     private TextField txtTituloBook;
     @FXML
@@ -76,6 +80,8 @@ public class SceneController {
     @FXML
     private TextField txtNumPaginasBook;
 
+    @FXML
+    private TextField txtIdMag;
     @FXML
     private TextField txtTituloMag;
     @FXML
@@ -151,6 +157,7 @@ public class SceneController {
 
     public void confirmAdd_Book(ActionEvent event){
         // Obtener los valores de los campos de texto
+        int ID = Integer.parseInt(txtIdBook.getText());
         String titulo = txtTituloBook.getText();
         String autor = txtAutorBook.getText();
         String descripcion = txtDescripcionBook.getText();
@@ -158,7 +165,7 @@ public class SceneController {
         int numPaginas = Integer.parseInt(txtNumPaginasBook.getText());
 
         // Crear un nuevo objeto Libro
-        Libro nuevoLibro= new Libro(0, titulo, autor, descripcion, cantidadDisp, numPaginas, "");
+        Libro nuevoLibro= new Libro(ID, titulo, autor, descripcion, cantidadDisp, numPaginas, "");
 
         // Insertar el libro en la base de datos
         database.insertLibro(nuevoLibro);
@@ -183,6 +190,7 @@ public class SceneController {
     
     public void confirmAdd_Doc(ActionEvent event){
          // Obtener los valores de los campos de texto
+         int ID = Integer.parseInt(txtIdDoc.getText());
          String titulo = txtTituloDoc.getText();
          String publicador = txtPublicadorDoc.getText();
          String descripcion = txtDescripcionDoc.getText();
@@ -190,7 +198,7 @@ public class SceneController {
          int numPaginas = Integer.parseInt(txtNumPaginasDoc.getText());
  
          // Crear un nuevo objeto Documento
-         Documento nuevoDocumento = new Documento(0, titulo, publicador, descripcion, cantidadDisp, numPaginas, "");
+         Documento nuevoDocumento = new Documento(ID, titulo, publicador, descripcion, cantidadDisp, numPaginas, "");
  
          // Insertar el documento en la base de datos
          database.insertDocumento(nuevoDocumento);
@@ -214,13 +222,14 @@ public class SceneController {
     
     public void confirmAdd_Mag(ActionEvent event){
         // Obtener los valores de los campos de texto
+        int ID = Integer.parseInt(txtIdDoc.getText());
         String titulo = txtTituloMag.getText();
         String descripcion = txtDescripcionMag.getText();
         int cantidadDisp = Integer.parseInt(txtCantidadDispMag.getText());
         int numPaginas = Integer.parseInt(txtNumPaginasMag.getText());
 
         // Crear un nuevo objeto revista
-        Revista nuevaRevista= new Revista(0, titulo, descripcion, cantidadDisp, numPaginas, "");
+        Revista nuevaRevista= new Revista(ID, titulo, descripcion, cantidadDisp, numPaginas, "");
 
         // Insertar la revista en la base de datos
         database.insertRevista(nuevaRevista);
