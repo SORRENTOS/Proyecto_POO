@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class Database {
     private static final String URL = "jdbc:postgresql://localhost:5432/elo";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "dev2108";
+    private static final String PASSWORD = "1234";
 
     public static Connection getConnection() throws SQLException {
         try {
