@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
+   <children>
+      <Label alignment="CENTER" layoutX="240.0" layoutY="-4.0" prefHeight="37.0" prefWidth="121.0" text="Agregar Revista" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="49.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="53.0" text="ID" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="90.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="53.0" text="Titulo" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="217.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="66.0" text="Descricion" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="134.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="112.0" text="Cantidad Disponible" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="178.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="112.0" text="Numero de Paginas" />
+      <TextField layoutX="145.0" layoutY="45.0" promptText="&quot;3&quot;" />
+      <TextField layoutX="145.0" layoutY="86.0" promptText="&quot;Condorito 50&quot;" />
+      <TextField alignment="TOP_LEFT" layoutX="145.0" layoutY="217.0" prefHeight="76.0" prefWidth="437.0" promptText="&quot;Condorito es una serie de historieta cómica chilena, protagonizada por el personaje homónimo.&quot;" />
+      <TextField layoutX="145.0" layoutY="130.0" prefHeight="25.0" prefWidth="149.0" promptText="&quot;15&quot;" />
+      <TextField layoutX="145.0" layoutY="174.0" prefHeight="25.0" prefWidth="149.0" promptText="&quot;2&quot;" />
+      <Button layoutX="26.0" layoutY="348.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="31.0" prefWidth="87.0" text="Cancelar" />
+      <Button layoutX="490.0" layoutY="348.0" mnemonicParsing="false" onAction="#Add_Mag" prefHeight="31.0" prefWidth="87.0" text="Confirmar" />
+   </children>
+</Pane>
