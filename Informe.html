@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe del Proyecto: Mantenimiento de una Base de Datos para una Biblioteca</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Informe del Proyecto: Mantenimiento de una Base de Datos para una Biblioteca</h1>
+
+    <h2>1. Descripción del Problema</h2>
+    <p>
+        El proyecto consiste en desarrollar un sistema para el mantenimiento de una base de datos de una biblioteca. Las acciones posibles incluyen añadir un libro, eliminar un libro y ver los libros a través de una interfaz de usuario simple.
+    </p>
+
+    <h2>2. Análisis del Problema</h2>
+    <p>
+        El sistema de la biblioteca interactúa con varias entidades, incluyendo usuarios, libros, y la base de datos. Los usuarios pueden realizar acciones como añadir, eliminar y ver libros. La base de datos almacena la información sobre los libros y asegura la integridad y disponibilidad de los datos.
+    </p>
+    <p>
+        <strong>Sistema:</strong> Base de Datos de la Biblioteca<br>
+        <strong>Interacciones con el Medio Externo:</strong> Usuarios realizando acciones en la interfaz de usuario.
+    </p>
+
+    <h2>3. Casos de Uso</h2>
+    <p>
+        <strong>Casos de Uso 1 </strong>
+        <ul>
+            <li><strong> Nombre:</strong> </li>
+            <li><strong> Proposito:</strong> </li>
+            <li><strong> Actores:</strong> </li>
+            <li><strong> Pre-condiciones:</strong> </li>
+            <li><strong> Evento:</strong> </li>
+            <li><strong> Curso normal de eventos:</strong> </li>
+            <li><strong> Curso alternativo de eventos:</strong> </li>
+            <li><strong> Requerimientos no funcionales:</strong> </li>
+            <li><strong> Autor:</strong> </li>
+        </ul>
+        <strong>Casos de Uso 2 </strong>
+        <ul>
+            <li><strong> Nombre:</strong> </li>
+            <li><strong> Proposito:</strong> </li>
+            <li><strong> Actores:</strong> </li>
+            <li><strong> Pre-condiciones:</strong> </li>
+            <li><strong> Evento:</strong> </li>
+            <li><strong> Curso normal de eventos:</strong> </li>
+            <li><strong> Curso alternativo de eventos:</strong> </li>
+            <li><strong> Requerimientos no funcionales:</strong> </li>
+            <li><strong> Autor:</strong> </li>
+        </ul>
+        <strong>Casos de Uso 3 </strong>
+        <ul>
+            <li><strong> Nombre:</strong> </li>
+            <li><strong> Proposito:</strong> </li>
+            <li><strong> Actores:</strong> </li>
+            <li><strong> Pre-condiciones:</strong> </li>
+            <li><strong> Evento:</strong> </li>
+            <li><strong> Curso normal de eventos:</strong> </li>
+            <li><strong> Curso alternativo de eventos:</strong> </li>
+            <li><strong> Requerimientos no funcionales:</strong> </li>
+            <li><strong> Autor:</strong> </li>
+        </ul>
+    </p>
+
+    <h2>4. Diseño</h2>
+    <p>A continuación se presentan los diagramas UML que muestran la arquitectura de la solución:</p>
+    <h3>Diagrama de Clases</h3>
+    <img src="diagrama_clases.png" alt="Diagrama de Clases">
+    <h3>Diagrama de Secuencia</h3>
+    <img src="diagrama_secuencia.png" alt="Diagrama de Secuencia para el caso de uso 'Añadir un libro'">
+
+    <h2>5. Implementación</h2>
+    <p>
+        La implementación se documenta en el código fuente con comentarios que pueden ser generados automáticamente con Javadoc u otra herramienta similar. Aquí se muestra un ejemplo del código comentado:
+    </p>
+    <pre>
+        // Clase Libro
+        /**
+         * Clase que representa un libro en la biblioteca.
+         */
+        public class Libro {
+            private String titulo;
+            private String autor;
+            private String isbn;
+
+            // Constructor, getters y setters
+        }
+    </pre>
+
+    <h2>6. Pruebas</h2>
+    <p>
+        A continuación se presentan los resultados de algunas pruebas de los casos de uso indicados:
+    </p>
+    <h3>Prueba: Añadir un libro</h3>
+    <img src="prueba_añadir_libro.png" alt="Prueba de Añadir un Libro">
+    <p>
+        En esta prueba, se añadió un libro con éxito y se verificó su aparición en la base de datos.
+    </p>
+
+    <h3>Prueba: Eliminar un libro</h3>
+    <img src="prueba_eliminar_libro.png" alt="Prueba de Eliminar un Libro">
+    <p>
+        En esta prueba, se eliminó un libro correctamente y se comprobó su eliminación de la base de datos.
+    </p>
+
+    <h3>Prueba: Ver libros</h3>
+    <img src="prueba_ver_libros.png" alt="Prueba de Ver Libros">
+    <p>
+        En esta prueba, se mostró correctamente la lista de libros disponibles en la interfaz de usuario.
+    </p>
+
+    <h3>Dificultades Encontradas</h3>
+    <p>
+        Durante el desarrollo del sistema, se encontraron las siguientes dificultades:
+        <ul>
+            <li>Integración de la base de datos con la interfaz de usuario.</li>
+            <li>Manejo de errores en la inserción y eliminación de datos.</li>
+            <li>Optimización de consultas para mejorar el rendimiento.</li>
+        </ul>
+        Todas estas dificultades fueron superadas implementando mejores prácticas de programación y realizando pruebas exhaustivas.
+    </p>
+
+    <h2>7. Enlace al Código del Proyecto</h2>
+    <p>
+        <a href="enlace_al_codigo_comprimido">Descargar código del proyecto</a>
+    </p>
+
+    <p>
+        Nota: En el archivo README se indican las dependencias y cómo obtenerlas. El proyecto comprimido incluye el archivo Makefile, README y todo el código fuente necesario, excluyendo código compilado y archivos generados por el IDE.
+    </p>
+</body>
+</html>
