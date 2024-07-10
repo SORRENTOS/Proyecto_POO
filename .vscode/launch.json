@@ -23,7 +23,7 @@
             "request": "launch",
             "mainClass": "Main",
             "projectName": "Proyecto_POO_ffa0a98e",
-            "vmArgs": "--module-path \"./javafx-sdk-21.0.3/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"./javafx-sdk-21.0.3/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base"
         }
     ]
 }
