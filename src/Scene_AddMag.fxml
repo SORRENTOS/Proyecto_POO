@@ -14,11 +14,11 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="134.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="112.0" text="Cantidad Disponible" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="178.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="112.0" text="Numero de Paginas" />
       <TextField layoutX="145.0" layoutY="45.0" promptText="&quot;3&quot;" />
-      <TextField layoutX="145.0" layoutY="86.0" promptText="&quot;Condorito 50&quot;" />
-      <TextField alignment="TOP_LEFT" layoutX="145.0" layoutY="217.0" prefHeight="76.0" prefWidth="437.0" promptText="&quot;Condorito es una serie de historieta cómica chilena, protagonizada por el personaje homónimo.&quot;" />
-      <TextField layoutX="145.0" layoutY="130.0" prefHeight="25.0" prefWidth="149.0" promptText="&quot;15&quot;" />
-      <TextField layoutX="145.0" layoutY="174.0" prefHeight="25.0" prefWidth="149.0" promptText="&quot;2&quot;" />
+      <TextField fx:id="txtTituloMag" layoutX="145.0" layoutY="86.0" promptText="&quot;Condorito 50&quot;" />
+      <TextField fx:id="txtDescripcionMag" alignment="TOP_LEFT" layoutX="145.0" layoutY="217.0" prefHeight="76.0" prefWidth="437.0" promptText="&quot;Condorito es una serie de historieta cómica chilena, protagonizada por el personaje homónimo.&quot;" />
+      <TextField fx:id="txtCantidadDispMag" layoutX="145.0" layoutY="130.0" prefHeight="25.0" prefWidth="149.0" promptText="&quot;15&quot;" />
+      <TextField fx:id="txtNumPaginasMag" layoutX="145.0" layoutY="174.0" prefHeight="25.0" prefWidth="149.0" promptText="&quot;2&quot;" />
       <Button layoutX="26.0" layoutY="348.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="31.0" prefWidth="87.0" text="Cancelar" />
-      <Button layoutX="490.0" layoutY="348.0" mnemonicParsing="false" onAction="#Add_Mag" prefHeight="31.0" prefWidth="87.0" text="Confirmar" />
+      <Button layoutX="490.0" layoutY="348.0" mnemonicParsing="false" onAction="#confirmAdd_Mag" prefHeight="31.0" prefWidth="87.0" text="Confirmar" />
    </children>
 </Pane>

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -52,6 +53,37 @@ public class SceneController {
     private TableColumn<Revista, Integer> CantMag;
     @FXML
     private TableColumn<Revista, Integer> DescMag;
+    
+    @FXML
+    private TextField txtTituloDoc;
+    @FXML
+    private TextField txtPublicadorDoc;
+    @FXML
+    private TextField txtDescripcionDoc;
+    @FXML
+    private TextField txtCantidadDispDoc;
+    @FXML
+    private TextField txtNumPaginasDoc;
+    
+    @FXML
+    private TextField txtTituloBook;
+    @FXML
+    private TextField txtAutorBook;
+    @FXML
+    private TextField txtDescripcionBook;
+    @FXML
+    private TextField txtCantidadDispBook;
+    @FXML
+    private TextField txtNumPaginasBook;
+
+    @FXML
+    private TextField txtTituloMag;
+    @FXML
+    private TextField txtDescripcionMag;
+    @FXML
+    private TextField txtCantidadDispMag;
+    @FXML
+    private TextField txtNumPaginasMag;
 
     private Database database = new Database();
 
@@ -118,8 +150,25 @@ public class SceneController {
     }
 
     public void confirmAdd_Book(ActionEvent event){
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        // Obtener los valores de los campos de texto
+        String titulo = txtTituloBook.getText();
+        String autor = txtAutorBook.getText();
+        String descripcion = txtDescripcionBook.getText();
+        int cantidadDisp = Integer.parseInt(txtCantidadDispBook.getText());
+        int numPaginas = Integer.parseInt(txtNumPaginasBook.getText());
+
+        // Crear un nuevo objeto Libro
+        Libro nuevoLibro= new Libro(0, titulo, autor, descripcion, cantidadDisp, numPaginas, "");
+
+        // Insertar el libro en la base de datos
+        database.insertLibro(nuevoLibro);
+
+        // Cerrar la ventana de agregar libros
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+
+        // Actualizar la tabla de libros
+        initializeBookScene();;
     }
 
     public void Add_Doc(ActionEvent event) throws IOException {
@@ -133,8 +182,25 @@ public class SceneController {
     }
     
     public void confirmAdd_Doc(ActionEvent event){
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.close();
+         // Obtener los valores de los campos de texto
+         String titulo = txtTituloDoc.getText();
+         String publicador = txtPublicadorDoc.getText();
+         String descripcion = txtDescripcionDoc.getText();
+         int cantidadDisp = Integer.parseInt(txtCantidadDispDoc.getText());
+         int numPaginas = Integer.parseInt(txtNumPaginasDoc.getText());
+ 
+         // Crear un nuevo objeto Documento
+         Documento nuevoDocumento = new Documento(0, titulo, publicador, descripcion, cantidadDisp, numPaginas, "");
+ 
+         // Insertar el documento en la base de datos
+         database.insertDocumento(nuevoDocumento);
+ 
+         // Cerrar la ventana de agregar documento
+         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+         stage.close();
+ 
+         // Actualizar la tabla de documentos
+         initializeDocsScene();
     }
     public void Add_Mag(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Scene_AddMag.fxml")); 
@@ -147,8 +213,24 @@ public class SceneController {
     }
     
     public void confirmAdd_Mag(ActionEvent event){
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        // Obtener los valores de los campos de texto
+        String titulo = txtTituloMag.getText();
+        String descripcion = txtDescripcionMag.getText();
+        int cantidadDisp = Integer.parseInt(txtCantidadDispMag.getText());
+        int numPaginas = Integer.parseInt(txtNumPaginasMag.getText());
+
+        // Crear un nuevo objeto revista
+        Revista nuevaRevista= new Revista(0, titulo, descripcion, cantidadDisp, numPaginas, "");
+
+        // Insertar la revista en la base de datos
+        database.insertRevista(nuevaRevista);
+
+        // Cerrar la ventana de agregar revista
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+
+        // Actualizar la tabla de revista
+        initializeMagScene();;
     }
 
     private void initializeDocsScene() {
