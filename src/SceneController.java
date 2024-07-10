@@ -12,11 +12,16 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private Database database = new Database();
 
     public void switchToScene_Books(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Scene_Books.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+
+        SceneBooksController sceneBooksController = new SceneBooksController();
+        sceneBooksController.setBooks(database.getAllLibros());
+
         stage.setScene(scene);
         stage.show();
     }

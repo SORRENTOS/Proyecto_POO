@@ -11,10 +11,10 @@
       <Label layoutX="286.0" layoutY="6.0" text="Libros" />
       <TableView layoutX="42.0" layoutY="79.0" prefHeight="283.0" prefWidth="519.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Titulo" />
-          <TableColumn prefWidth="75.0" text="Autor" />
-            <TableColumn prefWidth="75.0" text="Páginas" />
-            <TableColumn prefWidth="75.0" text="Cantidad" />
+          <TableColumn fx:id="idtitlebook" prefWidth="75.0" text="Titulo" />
+          <TableColumn fx:id="idautorbook" prefWidth="75.0" text="Autor" />
+            <TableColumn fx:id="idpagebook" prefWidth="75.0" text="Páginas" />
+            <TableColumn fx:id="idcantbook" prefWidth="75.0" text="Cantidad" />
         </columns>
       </TableView>
       <Button layoutX="76.0" layoutY="44.0" mnemonicParsing="false" onAction="#switchToScene_Books" text="Libros" />
